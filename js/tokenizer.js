@@ -1,13 +1,29 @@
 // 统一的 文本 → tokens 管道（预制帖子 & DeepSeek 实时回复共用）
 // 注音由 kuromoji 形态素分析得到，而不是让大模型生成，避免多音字/专有名词读错。
-const DIC = 'https://cdn.jsdelivr.net/npm/kuromoji@0.1.2/dict/';
-let tkp;
+// kuromoji 及词典托管在本仓库 vendor/ 下，在 Web Worker 中构建，不阻塞页面。
+let worker, readyP, seq = 0;
+const pending = new Map();
 
 export function initTokenizer() {
-  return tkp ||= new Promise((res, rej) => {
-    if (!window.kuromoji) return rej(new Error('kuromoji 脚本未加载'));
-    window.kuromoji.builder({ dicPath: DIC }).build((e, t) => (e ? rej(e) : res(t)));
+  return readyP ||= new Promise((res, rej) => {
+    worker = new Worker(new URL('./tok-worker.js', import.meta.url));
+    const timer = setTimeout(() => rej(new Error('词典加载超时（90 秒）')), 90000);
+    worker.onmessage = e => {
+      const d = e.data;
+      if (d.type === 'ready') { clearTimeout(timer); res(); }
+      else if (d.type === 'error') { clearTimeout(timer); rej(new Error(d.error)); }
+      else if (d.type === 'result') {
+        const p = pending.get(d.id); pending.delete(d.id);
+        if (p) d.error ? p.rej(new Error(d.error)) : p.res(d.out);
+      }
+    };
+    worker.onerror = e => { clearTimeout(timer); rej(new Error(e.message || 'Worker 出错')); };
   });
+}
+async function rawTokenize(lines) {
+  await initTokenizer();
+  const id = ++seq;
+  return new Promise((res, rej) => { pending.set(id, { res, rej }); worker.postMessage({ id, lines }); });
 }
 
 export const kata2hira = s => s.replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60));
@@ -28,18 +44,17 @@ function splitRuby(s, r) {
 }
 
 export async function tokenize(text) {
-  const t = await initTokenizer();
+  const lines = String(text || '').split('\n');
+  const res = await rawTokenize(lines);
   const out = [];
-  String(text || '').split('\n').forEach((line, li) => {
+  res.forEach((toks, li) => {
     if (li) out.push({ s: '\n', br: true, pos: '記号' });
-    if (!line) return;
-    for (const m of t.tokenize(line)) {
-      const s = m.surface_form;
-      const r = m.reading && m.reading !== '*' ? kata2hira(m.reading) : '';
+    for (const [s, reading, basic, pos, pos1] of toks) {
+      const r = reading && reading !== '*' ? kata2hira(reading) : '';
       out.push({
         s, r,
-        b: m.basic_form && m.basic_form !== '*' ? m.basic_form : s,
-        pos: m.pos, pos1: m.pos_detail_1,
+        b: basic && basic !== '*' ? basic : s,
+        pos, pos1,
         ruby: hasKanji(s) && r ? splitRuby(s, r) : null,
       });
     }

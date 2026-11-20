@@ -1,5 +1,5 @@
-const V = 'xjp-v1';
-const SHELL = ['./', 'index.html', 'css/style.css', 'js/app.js', 'js/db.js', 'js/tokenizer.js', 'js/deepseek.js', 'manifest.json', 'icon.svg'];
+const V = 'xjp-v2';
+const SHELL = ['./', 'index.html', 'css/style.css', 'js/app.js', 'js/db.js', 'js/tokenizer.js', 'js/tok-worker.js', 'js/deepseek.js', 'manifest.json', 'icon.svg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(V).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
@@ -16,8 +16,8 @@ self.addEventListener('fetch', e => {
     e.respondWith(fetch(req).then(r => { const c = r.clone(); caches.open(V).then(x => x.put(req, c)); return r; }).catch(() => caches.match(req)));
     return;
   }
-  // kuromoji 词典 / CDN：缓存优先（只下载一次）
-  if (url.hostname.includes('jsdelivr')) {
+  // kuromoji 词典 / vendor：缓存优先（只下载一次）
+  if (url.pathname.includes('/vendor/')) {
     e.respondWith(caches.match(req).then(m => m || fetch(req).then(r => { const c = r.clone(); caches.open(V).then(x => x.put(req, c)); return r; })));
     return;
   }

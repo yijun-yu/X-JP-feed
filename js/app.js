@@ -235,7 +235,7 @@ async function render() {
   let top = '', html = '';
   const needTok = st.view !== 'settings';
   if (needTok && !st.tokReady) {
-    html = st.tokErr ? `<div class="empty">分词词典加载失败：${esc(st.tokErr)}<br>请检查网络后刷新。</div>` : '<div class="empty"><div class="spin"></div>首次加载分词词典（约 12MB，之后离线可用）…</div>';
+    html = st.tokErr ? `<div class="empty">分词词典加载失败：${esc(st.tokErr)}<br>请检查网络后刷新。</div>` : '<div class="empty"><div class="spin"></div>首次加载分词词典（约 18MB，之后离线可用）…</div>';
   }
   if (st.view === 'home') {
     top = `<div class="tb-title">X-JP <span class="mode">${MODE_NAMES[st.settings.mode]} · Lv${st.settings.level}</span></div><div class="tabs scroll">${TOPICS.map(([k, n]) => `<button data-topic="${k}" class="${st.topic === k ? 'on' : ''}">${n}</button>`).join('')}</div>`;
