@@ -1,3 +1,6 @@
 {
-  "files": ["seed.json"]
+  "files": [
+    "seed.json",
+    "2026112011.json"
+  ]
 }
